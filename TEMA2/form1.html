@@ -29,7 +29,15 @@
 
     <fieldset>
         <legend>Indique sus preferencias por favor</legend>
-    <select multiple name="sexo" id="sexo"></select>
+    <select multiple name="sexo" id="sexo">
+        <option value="Hombre">Hombre</option>
+        <option value="Mujer">Mujer</option>
+    </select><br>
+    <input type="checkbox" name="sexo" id="sexohombre">Hombre<br>
+    <input type="checkbox" name="sexo" id="sexomujer">Mujer<br>
+
+    <label for="eleccionfecha">Elija una fecha</label>
+    <input type="date" name="fecha" id="fecha">
     </fieldset>
 </body>
 </html>
