@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa</title>
+    <style>
+        #pared{
+            background-color: white;
+            width: 500px;
+        }
+        #cesped{
+            background-color: green;
+            background-image: url(https://cdn.pixabay.com/photo/2017/03/29/11/48/meadow-2184989_640.jpg);
+            width: 100%;
+            margin-left: 0%;
+            margin-right: 0%;
+            height: 300px;
+            position: absolute;
+            bottom: 1px;
+        }
+        #ventana{
+            background-color: lightblue;
+            width: 100px;
+            height: 100px; 
+            position: absolute;
+            border-style: solid;
+        }
+        #cielo{
+            background-color: rgb(143, 215, 240);
+            width: 100%;
+            height: 600px;
+            position: absolute;
+            margin-top: 0px;
+            z-index: -1;
+
+        }
+        #puerta{
+            background-color: brown;
+            position: absolute;
+            border-style: hidden;
+            border-radius: 20px;
+            z-index: 1;
+            left: 100px;
+            top: 100px;
+        }
+        #pared{
+            background-color: white;
+            width: 50px;
+            height: 70px;
+            position: absolute;
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="pared"></div>
+    <div id="cielo"></div>
+    <div id="cesped"></div>
+    <div id="ventana"></div>
+    <div id="puerta"></div>
+</body>
+</html>
