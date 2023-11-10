@@ -1,7 +1,22 @@
-#header{
+#header {
     position: sticky;
     top: 0;
 }
 a {
     text-decoration: none;
+}
+#imagen1 {
+    margin-top: 50px;
+    margin-left: 100px;
+    float: left;
+}
+li{
+    list-style-type: none;
+}
+div {
+    border-style: solid;
+}
+#enlaces {
+    position: relative;
+    width: 20%;
 }
