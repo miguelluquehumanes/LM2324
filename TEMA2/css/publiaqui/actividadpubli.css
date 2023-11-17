@@ -51,29 +51,32 @@ li{
 .recuadro_izquierda{
     height: 635px;
     width: 20%;
-    border-style: solid;
     position: fixed;
+    background-color: lightgrey;
 }
 .recuadro_derecha{
     height: 636px;
     width: 280px;
-    border-style: solid;
     position: fixed;
     left: 998px;
+    background-color: lightgrey;
 }
 .recuadro_centro{
     height: 636px;
-    border-style: solid;
     width: 57%;
     position: fixed;
     left: 262px;
     text-indent: 20px;
     text-transform: capitalize;
     overflow: scroll;
+    background-color: lightgrey;
 }
 #imagen1{
     float: left;
 }
 #imagen2{
     float: right;
+}
+#pag_entera{
+    background-color: lightgrey;
 }
