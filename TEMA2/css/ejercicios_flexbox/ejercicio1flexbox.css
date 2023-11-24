@@ -1,0 +1,68 @@
+#cajagrande{
+    width: 800px;
+    border: solid red;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    color: white;
+    font-size: 25px;
+}
+#n1{
+    background-color: lightgreen;
+    width: 30px;
+    height: 500px;
+}
+#n2{
+   background-color: blue; 
+   display: inline-block;
+   width: 30px;
+   height: 500px;
+}
+#n3{
+    background-color: purple;
+    width: 30px;
+    height: 500px;
+
+}
+#n4{
+    background-color: lightgrey;
+    width: 30px;
+    height: 500px;
+
+}
+#n5{
+    background-color: yellow;
+    width: 30px;
+    height: 500px;
+
+}
+#n6{
+    background-color: orange;
+    width: 30px;
+    height: 500px;
+
+}
+#n7{
+    background-color: red;
+    width: 30px;
+    height: 500px;
+
+}
+#n8{
+    background-color: grey;
+    width: 30px;
+    height: 500px;
+
+}
+#n9{
+    background-color: lightblue;
+    width: 30px;
+    height: 500px;
+
+}
+#n10{
+    background-color: green;
+    width: 30px;
+    height: 500px;
+
+}
