@@ -54,7 +54,7 @@ a{
 /*A partir de aquí vamos a cambiar la disposición
 de los elementos cuando el tamaño de la pantalla sea
 superior a 480px*/
-@media screen and (max-width: 480px) {
+@media screen and (min-width: 560px) {
     body{
         display: flex;
         flex-direction: column;
