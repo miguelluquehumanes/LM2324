@@ -1,0 +1,46 @@
+body{
+    background-color: antiquewhite;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+div {
+    border-style: solid;
+    border-width: 4px;
+    background-color: lightgray;
+    line-height: 150px;
+    width: auto;
+    height: auto;
+    padding: 20px 20px 20px 20px;
+}
+.centrado{
+    background-color: lightgreen;
+    width: 80%;
+    display: grid;
+    margin: auto;
+    border-style: solid;
+    border-width: 1px;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto auto auto auto;
+}
+#caja1{
+    background-color: lightblue;
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+#caja2{
+    background-color: bisque;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+#caja3{
+    background-color: salmon;
+}
+#caja11{
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+#caja12{
+    background-color: aquamarine;
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
