@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+body{
+    display: flex;
+    background-color: #970043;
+    flex-direction: column;
+    font-family: 'Open Sans', Helvetica, sans-serif;
+
+}
+.contenedor {
+    display:flex;
+    flex-direction: row;
+}0.
+0 .             a{
+    text-decoration: none;
+}
+header{
+    text-align: center;
+    background-color: #ffd100;
+  
+}
+#derecha{
+    display: flex;
+    justify-content: flex-end;
+}
+#izquierda{
+    display: flex;
+    justify-content: flex-start;
+}
+main{
+    background-color: #f2f2f2;
+    align-content: center;
+}
+footer{
+
+}
+img{
+    display: flex;
+    margin: auto;
+}
+aside{
+    box-sizing: content-box;
+    width: 100%;
+}
