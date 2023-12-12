@@ -1,0 +1,82 @@
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0 0 0 0;
+    background-color: white;
+    font-family: 'Century Gothic', Arial, Helvetica, sans-serif;
+    font-size: 1.1em;
+    color: white;
+}
+.header{
+    background-color: darkgray;
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: whitesmoke;
+    border-radius: 10px 10px 10px 10px;
+}
+footer{
+    background-color: darkgoldenrod;
+    padding: 20px;
+    margin: 20px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: whitesmoke;
+    border-radius: 10px 10px 10px 10px;
+    width: auto;
+}
+a{
+    text-decoration: none;
+    cursor: progress;
+    color: white;
+}
+ul, li{
+    list-style: none;
+}
+@media(min-width: 641px){
+    .envoltorio{
+        display: flex;
+        flex-direction: row;
+    }
+}
+nav{
+    background-color: darkcyan;
+    padding: 20px;
+    margin: 20px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: whitesmoke;
+    border-radius: 10px 10px 10px 10px;
+}
+.columna_central{
+    padding: 20px;
+    margin: 20px 20px 20px 20px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: whitesmoke;
+    border-radius: 10px 10px 10px 10px;
+}
+section{
+    background-color: darkolivegreen;
+}
+img{
+    float: left;
+    margin-right: 20px;
+    margin-left: 20px;
+    border-radius: 2vh;
+    outline: 5px solid goldenrod;
+    max-width: 100%;
+}
+p::first-letter{
+    font-size: 2.2em;
+    color: darkgray;
+}
+nav{
+    width: fit-content;
+}
+h2{
+    color: white;
+}
