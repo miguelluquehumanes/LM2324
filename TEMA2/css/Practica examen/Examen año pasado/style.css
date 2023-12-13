@@ -1,71 +1,75 @@
+html{
+    display: flex;
+    flex-direction: column;
+}
 body{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    margin: 0 0 0 0;
+    margin: 0;
     background-color: white;
     font-family: 'Century Gothic', Arial, Helvetica, sans-serif;
     font-size: 1.1em;
-    color: white;
 }
-.header{
+header{
     background-color: darkgray;
     text-align: center;
     padding: 20px;
-    margin: 20px;
+    margin: 20;
     border-style: solid;
     border-width: 2px;
     border-color: whitesmoke;
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 10px;
+    color: #fff;
 }
 footer{
     background-color: darkgoldenrod;
     padding: 20px;
-    margin: 20px;
+    margin: 20;
     border-style: solid;
-    border-width: 2px;
     border-color: whitesmoke;
-    border-radius: 10px 10px 10px 10px;
-    width: auto;
+    border-radius: 10px;
+    text-align: center;
 }
-a{
+/*a{
     text-decoration: none;
     cursor: progress;
     color: white;
-}
+}*/
 ul, li{
     list-style: none;
 }
-@media(min-width: 641px){
+@media(max-width: 640px){
+    body{
+        min-height: 0;
+    }
     .envoltorio{
-        display: flex;
-        flex-direction: row;
+        flex-direction: column;
+    }
+    .content{
+        flex-basis: auto;
+    }
+    nav{
+        width: auto;
+        order: 0;
     }
 }
 nav{
     background-color: darkcyan;
     padding: 20px;
-    margin: 20px;
+    margin: 20;
     border-style: solid;
     border-width: 2px;
     border-color: whitesmoke;
-    border-radius: 10px 10px 10px 10px;
-}
-.columna_central{
-    padding: 20px;
-    margin: 20px 20px 20px 20px;
-    border-style: solid;
-    border-width: 2px;
-    border-color: whitesmoke;
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 10;
 }
 section{
     background-color: darkolivegreen;
 }
 img{
     float: left;
-    margin-right: 20px;
-    margin-left: 20px;
+    margin-top: 1.1vw;
+    margin-right: 2vw;
     border-radius: 2vh;
     outline: 5px solid goldenrod;
     max-width: 100%;
@@ -75,8 +79,37 @@ p::first-letter{
     color: darkgray;
 }
 nav{
-    width: fit-content;
+    width: 15em;
+    order: 0;
 }
 h2{
     color: white;
+}
+.envoltorio{
+    display: block;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: row;
+}
+.content{
+    display: block;
+    flex: 1;
+}
+@media print{
+    body{
+        font-family: 'Times New Roman', Times, serif;
+        color: black;
+        background-color: white;
+    }
+    nav{
+        display: none;
+    }
+}
+nav a{
+    display: block;
+    padding: .5em 1em;
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, .3);
+    cursor: progress;
 }
