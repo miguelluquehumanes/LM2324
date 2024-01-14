@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de sesión en página web</title>
+</head>
+<body>
+    <h1>Introduce tu usuario y tu contraseña</h1>
+    <input placeholder="Usuario" id="usuario" type="textbox">
+    <input placeholder="Contraseña" id="contra" type="textbox">
+    <button onclick="saludo()">Iniciar sesión</button>
+    <script>
+        function saludo(){
+            var cadena;
+            var cadena2;
+            //if(document.getElementById("usuario","contra")= true){
+            cadena = document.getElementById("usuario").value;
+            cadena2 = document.getElementById("contra").value;
+            alert('Bienvenido ' +cadena);
+            alert('con contraseña ' +cadena2);
+            //}
+        }
+    </script>
+</body>
+</html>
