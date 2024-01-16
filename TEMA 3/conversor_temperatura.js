@@ -3,9 +3,8 @@ function convertir(grados){
     //let resultado = 0;
     if (grados=="celsius"){
         //Convierto a celsius
-        resultado = valor - (32);
-        resultado2 = resultado / (5/9);
-        document.getElementById("resultado").innerHTML = resultado2 + "ºC";
+        resultado = (valor -32) *5/9;
+        document.getElementById("resultado").innerHTML = resultado + "ºC";
     }
     else{
         //Convierto a farenheit
