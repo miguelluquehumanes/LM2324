@@ -6,19 +6,35 @@
     <title>Calculadora de números</title>
 </head>
 <body>
-    <input id="numero" type="text" placeholder="Introduzca un número que no contenga decimales">
-    <button onclick="">Añadir número</button>
-    <button onclick="">Sumar</button>
-    <button onclick="">Multiplicar</button>
+    <input id="numero" type="number" placeholder="Introduzca un número que no contenga decimales">
+    <button onclick="add()">Añadir número</button>
+    <button onclick="sumar()">Sumar</button>
+    <button onclick="multiplicar()">Multiplicar</button>
+    <p id="resultado"></p>
     <ul id="lista"></ul>
     <script>
         let numeros = [];
-        function añadirNumero(){
-            document.getElementById('numero').value;
-            let numero = parseFloat(numero);
-            
+        function add(){
+            var Numero = parseFloat(document.getElementById('numero').value);
+            Numeros.push(numero);
+            document.getElementById('resultado').innerHTML = Numeros
         }
 
+    var s = 0
+    function sumar(){
+        s = 0;
+        for (var i = 0 ; i< Numeros.length; i++){
+            s += Numeros[i];
+        }
+        document.getElementById('resultado').innerHTML = s;
+    }
+    function multiplicar (){
+        var m  = 1;
+        for (var i = 0; i< Numeros.length; i++) {
+            m = m *Numeros[i];
+        }
+        document.getElementById('resultado').innerHTML = m;
+    }
     </script>
 </body>
 </html>
