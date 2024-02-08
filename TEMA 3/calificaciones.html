@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de calificaciones</title>
+    <style>
+        #aviso{
+            color: red;
+        }
+    </style>
+    <script src="calificaciones.js"></script>
+</head>
+<body>
+    <h1>Calificaciones del ciclo</h1>
+    <p>Escribe tus calificaciones y ve añadiéndolas...</p>
+    <input type="text" id="numero" placeholder="Calificación"><br>
+    <p id="aviso"></p>
+    <p id="notas"></p><!--Aquí se mostrarán las calificaciones iniciales-->
+    <p id="resultado"></p><!--Aquí se mostrarrá el resultado del cálculo-->
+    <button onclick="anadir()">Añadir calificación</button>
+    <button onclick="borrar()">Borrar calificaciones</button>
+    <button onclick="calcularMedia()">Calcular media</button>
+    
+</body>
+</html>
