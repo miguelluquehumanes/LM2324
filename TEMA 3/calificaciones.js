@@ -20,6 +20,7 @@ function anadir(){
 function borrar(){
     document.getElementById("aviso").innerHTML="";
     document.getElementById("notas").innerHTML="";
+    document.getElementById("resultado").innerHTML="";
     notas=[];
 }
 
