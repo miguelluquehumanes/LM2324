@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anuncios rotatorios</title>
+</head>
+<body>
+    <h1>Anuncios rotatorios</h1>
+    <a href="https://" target="_new" id="enlaceActual">
+        <img id="fotoActual" src="banner0.png" alt="Imagen citroën">
+    </a>
+
+
+    <script>
+        var fotos =newArray();
+        var indice = 0;
+        var totalFotos;
+        fotos[0]="banner0.png";
+        fotos[1]="banner1.png";
+        fotos[2]="banner2.png";
+        fotos[3]="banner3.png";
+        fotos[4]="banner4.png";
+        fotos[5]="banner5.png";
+
+        var enlaces =newArray();
+        var totalEnlaces;
+        enlaces[0]="https://store.dsautomobiles.es/configurable";
+        enlaces[1]="https://www.elcorteingles.es/supermercado/";
+        enlaces[2]="https://www.elcorteingles.es/daitsu/electrodomesticos/aire-acondicionado/";
+        enlaces[3]="https://www.madridhifi.com";
+        enlaces[4]="https://launidad.movistarplus.es/?dis_c=331187589&dclid=CL-Lt9zx4_YCFdZEHQkdLpkExQ";
+        enlaces[5]="https://www.tikamoon.es";
+        setInterval(function siguiente(){
+                totalFotos = fotos.length;
+                totalEnlaces= fotos.enlaces;
+                if (indice==totalFotos-1){
+                    indice=0; /* Empezamos de nuevo */
+                }
+                else
+                {
+                    indice=indice+1;        
+                }
+                document.getElementById("fotoActual").src = fotos[indice]; /* Ponemos el nombre del fichero */
+                document.getElementById("enlaceActual").src = enlaces[indice];
+            },
+            3000)
+    </script>
+</body>
+</html>
