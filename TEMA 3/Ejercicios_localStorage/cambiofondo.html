@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambio fondos</title>
+    <style>
+    body {
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+  }
+ 
+  .container {
+    text-align: center;
+    margin-top: 100px;
+  }
+ 
+  button {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+ 
+  .light-theme {
+    background-color: #ffffff;
+    color: #000000;
+  }
+ 
+  .dark-theme {
+    background-color: #333333;
+    color: #ffffff;
+  }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <h1>Selecciona un tema</h1>
+      <button id="temaclaro">Tema Claro</button>
+      <button id="temaoscuro">Tema Oscuro</button>
+    </div>
+  
+    <script>
+  
+      document.addEventListener("DOMContentLoaded", function() {
+    var claro = document.getElementById("temaclaro");
+    var oscuro = document.getElementById("temaoscuro");
+    var guardarTema = localStorage.getItem("theme");
+  
+    if (guardarTema) {
+      aplicarTema(guardarTema);
+    }
+  
+    claro.addEventListener("click", function() {
+      aplicarTema("light");
+    });
+  
+    oscuro.addEventListener("click", function() {
+      aplicarTema("dark");
+    });
+  
+    function aplicarTema(theme) {
+      document.body.classList.remove("light-theme", "dark-theme");
+      document.body.classList.add(`${theme}-theme`);
+  
+      localStorage.setItem("theme", theme);
+    }
+  });
+  
+  
+  
+    </script>
+  </body>
+  </html>
+  

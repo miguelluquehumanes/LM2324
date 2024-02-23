@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lista de Tareas</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    #taskInput {
+        margin-bottom: 10px;
+    }
+</style>
+</head>
+<body>
+    <h1>Lista de Tareas</h1>
+    <input type="text" id="tarea" placeholder="Escribe tu tarea aquí">
+    <button onclick="anadirTarea()">Añadir Tarea</button>
+    <ul id="listaTarea"></ul>
+
+    <script>
+        // Función para añadir una tarea a la lista y al localStorage
+        function anadirTarea() {
+            var entradaTarea = document.getElementById("tarea");
+            var listaTarea = document.getElementById("listaTarea");
+            var task = tarea.value.trim();
+            
+            if (task !== "") {
+                var li = document.createElement("li");
+                li.textContent = task;
+                listaTarea.appendChild(li);
+                tarea.value = "";
+
+                // Guardar la tarea en localStorage
+                var tareas = JSON.parse(localStorage.getItem("tareas")) || [];
+                tasks.push(task);
+                localStorage.setItem("tasks", JSON.stringify(tasks));
+            } else {
+                alert("Por favor, escribe una tarea válida.");
+            }
+        }
+
+        // Función para cargar las tareas guardadas en localStorage al cargar la página
+        window.onload = function() {
+            var listaTareas = document.getElementById("listaTareas");
+            var tareas = JSON.parse(localStorage.getItem("tareas")) || [];
+            
+            tasks.forEach(function(tarea) {
+                var li = document.createElement("li");
+                li.textContent = tarea;
+                listaTareas.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>
