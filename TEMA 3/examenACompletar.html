@@ -22,7 +22,12 @@
     </tr>
   </table>
   <script type="text/javascript">
-      var tamano=100; // TamaNo inicial
+      var preferencias = {
+        fuente:"Times New Roman",
+        tamano: 100,//Numero
+        color: "#000"
+      }
+      //var tamano=100; // TamaNo inicial
       function aumenta(){
         tamano+=25;
         document.getElementById("parrafo").style.fontSize = tamano+"%"; // aumentamos un 25% el tamaño
@@ -33,17 +38,31 @@
       }
       function cambiarColor(){
         document.getElementById("parrafo").style.color= document.getElementById("color").value; //Cambiamos el color del parrafo
+        preferencias.color = document.getElementById("color").value;
       }
       function cambiarFuente(font) {
         document.getElementById('input-font').style.fontFamily = font.value; // Cambiamos la fuente del parrafo
+        preferencias.fuente = font.value;
       }
       function guardar(){
-        localStorage.setItem("tamaño", tamano);
-        localStorage.setItem("fuente", document.getElementById("parrafo").style.fontFamily);
-        localStorage.setItem("color", document.getElementById("parrafo").style.color);
+        localStorage.setItem("preferencias", JSON.stringify(preferencias));
+        //localStorage.setItem("tamaño", tamano);
+        //localStorage.setItem("fuente", document.getElementById("parrafo").style.fontFamily);
+        //localStorage.setItem("color", document.getElementById("parrafo").style.color);
       }
       function cargarDatos(){
-        tamano = localStorage.getItem("tamaño");
+        var cadena = localStorage.getItem("preferencias")
+        if(cadena!=null){
+          preferencias = JSON.parse(cadena);//Esto convierte cadena a objeto
+          document.getElementById("parrafo").style.color = preferencias.color;
+          document.getElementById("parrafo").style.fontFamily = preferencias.fuente;
+          document.getElementById("parrafo").style.fontSize = preferencias.tamano + "%";
+        }else{//Si no había nada guardado, ESTO SE PUEDE QUITAR YA QUE ESTÁ METIDO ARRIBA EN EL TEXTO
+          preferencias.tamano = 100;
+          preferencias.fuente = 'Times New Roman';
+          preferencias.color= "#000";
+        }
+        /*tamano = localStorage.getItem("tamaño");
         if(tamano!=null){
           document.getElementById("parrafo").style.fontSize = tamano+"%";
         }
@@ -65,10 +84,10 @@
         }
         else {
           document.getElementById("parrafo").style.color = "#000"; //Negro
-        }
+        }*/
       }
 
-      window.onload = cargarDatos();
+      window.onload = cargarDatos();//No va a funcionar si no llamamos a cargarDatos
 
   </script>
   </body>
