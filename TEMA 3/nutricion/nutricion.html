@@ -15,12 +15,27 @@
 <body>
     <h1>Bienvenido a tu asesor  nutricional</h1>
     <img src="https://as01.epimg.net/deporteyvida/imagenes/2017/10/02/portada/1506943228_896660_1506943359_noticia_normal.jpg" alt="Culturista">
-    <input type="text" placeholder="Introduce tu peso actual">
+    <input type="number" id="pesoActual" placeholder="Introduce tu peso actual">
     <p><button onclick="guardar()">Guardar</button></p>
     <script>
-        guardar(){
-            
+        function guardar(){
+            var peso = document.getElementById("pesoActual").value;
+            localStorage.setItem("peso", peso);
+            alert("Peso guardado correctamente");
         }
+        window.onload = function(){
+            var pesoGuardado = localStorage.getItem("peso");
+
+            if (pesoGuardado){
+                document.getElementById("pesoActual").value = pesoGuardado;
+                var pesoAnterior = parseInt(pesoGuardado);
+            }
+            if (pesoAnterior < 80){
+                document.body.innerHTML += "<p>Enhorabuena vas por buen camino</p>"
+            }else {
+                alert("Introduzca su peso");
+            }
+        };
     </script>
 </body>
 </html>
