@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario registro</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <label for="">Nombre:</label><input id="nombre" type="text"><span class="error" id="campo1"></span><br>
+
+    <label for="">Apellidos:</label><input id="apellidos" type="text"><span class="error" id="campo2"></span><br>
+
+    <label for="">Email:</label><input id="email" type="email"><span class="error" id="campo3"></span><br>
+
+    <label for="">Contraseña:</label><input id="password" type="password" name=""><span class="error"
+        id="campo4"></span><br>
+    <label for="">Repita la contraseña</label><input type="password" id="repitaContra"> <span class="error"
+        id="campo5"></span><br>
+
+    <label for="">DNI</label><input type="" id="dni"><span class="error" id="campo6"></span><br>
+
+    <label for="">Fecha de nacimiento</label><input type="date" id="fechaNac"><span class="error"
+        id="campo7"></span><br>
+
+    <label for="">¿Es usted mayor de edad?</label><input type="checkbox" name="" id="checkbox"><span class="error"></span><br>
+    
+    <button onclick="validar(document.getElementsByTagName('input'))">Validar</button>
+
+    <script>
+        function validar(elementos) {
+            let estanCorrectos = true;
+            for (var i = 0; i < elementos.length; i++) {
+                document.getElementById("campo" + (i + 1).toString()).innerHTML = "";
+                if (elementos[i].value == "" || (i == 4 && !elementos[i].checked)) {
+                    document.getElementById("campo" + (i + 1).toString()).innerHTML = "El campo " + elementos[i].id + " está vacío";
+                    estanCorrectos = false;
+                }
+
+            }
+            if (!validarEmail()) {
+                document.getElementById("campo3").innerHTML = "Email no válido";
+                estanCorrectos = false;
+            }
+            if (!validaPasswords()) { // Si no son válidas las contraseñas
+                document.getElementById("campo4").innerHTML = "La contraseña no cumple con requisitos de longitud o no coinciden";
+                document.getElementById("campo5").innerHTML = "La contraseña no cumple con requisitos de longitud o no coinciden";
+                estanCorrectos = false;
+            }
+            if (!validarDNI()) {
+                document.getElementById("campo6").innerHTML = "DNI no válido (12345678X)";
+                estanCorrectos = false;
+            }
+            if(!validarFecha()){
+                document.getElementById("campo7").innerHTML = "No eres mayor de edad";
+                estanCorrectos = false;
+            }
+            if(estanCorrectos = true){
+                alert("Usuario registrado con éxito");
+            }
+            return estanCorrectos;
+        }
+        function validarEmail() {
+            var valido = JSON.parse(localStorage.setItem("obtenerEmail"));
+            var emailField = document.getElementById('email');
+            var validEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+            if (validEmail.test(emailField.value)) {
+                valido = true;
+            } else {
+                valido = false;
+            }
+            return valido = JSON.stringify(localStorage.getItem("obtenerEmail"));
+        }
+
+        function validaPasswords() {
+            // return (document.getElementById("password1").value == document.getElementById("password2").value) && document.getElementById("password2").value.length>=8;
+            let clave1 = document.getElementById("password1").value;
+            let clave2 = document.getElementById("repitaContra").value;
+            var consejos = "";
+            let passwordsOK = true; // Cumple con los requisitos establecidos
+            passwordsOK = JSON.parse(localStorage.setItem("obtenerContra"))
+            if (clave1.length < 8 || (clave1 != clave2))
+                passwordsOK = false;
+
+
+            if (password.coincide(/[a-z]/) && password.coincide(/[A-Z]/)) {
+                clave1 += 1;
+                clave1 != clave2;
+            } else {
+                consejos += "Utiliza mayúsculas y minúsculas. ";
+                passwordsOK = false;
+            }
+
+            if (password.coincide(/\d/)) {
+                clave1 += 1;
+                clave1 != clave2;
+            } else {
+                consejos += "Incluye al menos un número.";
+                passwordsOK = false;
+            }
+
+            if (password.match(/[^a-zA-Z\d]/)) {
+                clave1 += 1;
+                clave1 != clave2;
+            } else {
+                tips += "Incluye al menos un carácter especial. ";
+                passwordsOK = false
+            }
+
+            return passwordsOK = JSON.stringify(localStorage.getItem("obtenerContra"));
+        }
+
+        function validarDNI() {
+            var letra = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'];
+            var cadena = document.getElementById("dni").value; // DNI Completo
+            var numero = parseInt(cadena.substring(0, 8)); // Parte numérica
+            var letraUsuario = cadena[8]; // Letra escrita por el usuario
+            var letraReal = letra[numero % 23]; // Letra "real" del DNI calculada según "fórmula"
+            var dniValido = true;
+            dniValido = JSON.parse(localStorage.setItem("obtenerDni"))
+            if (letraUsuario != letraReal) // Si no coincide letras es falso
+                dniValido = false;
+            return dniValido = JSON.stringify(localStorage.getItem("obtenerDni"));
+        }
+        function validarFecha() {
+            
+        }
+    </script>
+</body>
+
+</html>
