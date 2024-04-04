@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>attr</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Encabezado</h1>
+    <img src="r8.jfif" alt="">
+    <p id="primero">Lorem ipsum dolor <a href="http://marca.com"></a> sit amet consectetur adipisicing elit. Dignissimos, aliquam fugit quo harum dicta quod beatae alias veritatis reiciendis itaque nihil non debitis nostrum sequi similique. Atque vel saepe labore.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus optio, similique quaerat quisquam fugiat, labore veritatis fugit iste magni vero ad? Vero, delectus. Dolorem eaque, nihil impedit magni similique nostrum?</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam expedita voluptatibus error illum quas quis enim ipsam consectetur! Magnam voluptatum suscipit modi provident eveniet sit aliquid quod qui consequatur reprehenderit!</p>
+    <button id="boton1">Obtener html del encabezado</button>
+    <button id="boton2">Obtener src de la imagen</button>
+    <button id="boton3">Obtener html de un parrafo</button>
+    <script>
+        $(document).ready(function(){
+            $("#boton1").click(function(){
+                alert("El html del encabezado es: "+$("h1").html());
+            });
+            $("#boton2").click(function(){
+                alert("El src de la imagen es: "+$("img").attr("src"));
+            });
+            $("#boton3").click(function(){
+                alert("El html del parrafo es: "+$("#primero").html());
+            });
+        });
+    </script>
+</body>
+</html>
