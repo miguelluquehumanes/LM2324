@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacio</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        #azul{
+            background-color: blue;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div id="azul">Este texto puede desaparecer</div>
+    <button id="desaparecer">Desaparecer</button>
+    
+    <script>
+        $(document).ready(function () {
+            $("#desaparecer").click(function(){
+                $("#azul").empty();
+            })
+        });
+    </script>
+</body>
+</html>

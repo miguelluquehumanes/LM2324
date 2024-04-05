@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validar formulario con jQuery</title>
+    <style>
+        input {
+            margin: 5px 5px;
+        }
+        p {
+            color: red;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <input type="text" placeholder="Nombre" id="nombre" required><br><p id="errorNombre"></p>
+    <input type="text" placeholder="Apellido" id="apellidos" required><br><p id="errorApellidos"></p>
+    <input type="email" name="" id="correo" placeholder="Email" required><br><p id="errorCorreo"></p>
+    <input type="date" name="" id="fnac"><br>
+    <input type="text" name="" id="dni" placeholder="12345678X" required><br>
+    <input type="password" name="" id="password1" placeholder="Contraseña" required><br> <p id="errorContra1"></p>
+    <input type="password" name="" id="password2" placeholder="Repita la contraseña" required><br><p id="errorContra2"></p>
+    <input type="checkbox" name="" id="privacidad" required><label for="">Acepta la política de privacidad</label><br><p id="errorPrivacidad"></p>
+    <button>Registrarse</button>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function(){
+                let patronEmail = /^([a-zA-Z0-9_\.\+\-])+\@(([a-zA-z0-9\-])+\.)+([a-zA-Z0-9]{2,4})$/;
+                let nombre = $("#nombre").val(); //con el .val obtienes el valor de la caja de texto
+                let apellido = $("#apellidos").val();
+                let email = $("#correo").val();
+                let patronContraseña = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}/;
+                let contra1 = $("#password1").val();
+                let contra2 = $("#password2").val();
+                let privacidad = $("#privacidad").is(":checked");
+                if(nombre ==""){
+                    $("#errorNombre").text("Rellenar el campo nombre");
+                }
+                else{
+                    $("#errorNombre").text("");
+                }
+                if(apellido ==""){
+                    $("#errorApellidos").text("Rellenar el campo apellidos");
+                }
+                else{
+                    $("#errorApellidos").text("");
+                }
+                if(email ==""){
+                    $("#errorCorreo").text("Rellenar el campo email con algo@algo.com");
+                }
+                else{
+                    //El correo no es la cadena vacía
+                    if (!patronEmail.test(email)){
+                        $("#errorCorreo").text("Formato no válido de email")
+                    }
+                    else{
+                        $("#errorCorreo").text("");
+                    }
+                    
+                }
+                if (contra1 != contra2) {
+                    $("#errorContra1").text("Las contraseñas deben de coincidir");
+                    $("#errorContra2").text("Las contraseñas deben de coincidir");
+                }
+                else {
+                    if (!patronContraseña.test(contra1)){
+                        $("#errorContra1").text("No cumple con los requisitos. Longitud mínima: 8, incluir mayúscula, minúscula y dígito");
+                        $("#errorContra2").text("No cumple con los requisitos. Longitud mínima: 8, incluir mayúscula, minúscula y dígito");
+                    }
+                    else {
+                        $("#errorContra1").text("");
+                        $("#errorContra2").text("");
+                    }
+                }
+                if (!privacidad){
+                    $("#errorPrivacidad").text("Debe aceptar la política de privacidad")
+                }
+                else {
+                    $("#errorPrivacidad").text("")
+                }
+
+            })
+        });
+    </script>
+</body>
+</html>
