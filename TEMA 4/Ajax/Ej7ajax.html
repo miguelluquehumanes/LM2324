@@ -16,14 +16,10 @@
     <script>
         /* Completar el código jQuery aquí */
         $(document).ready(function () {
-          let apikey = "9c22e382372be63cff347953b70b813f"; //Mi API key
-          let url="http://api.ipapi.com/api/check?access_key=e6e69afc5c113a3c12c705ad01c020ce&quot";;
-          let lat = "37.38283";
-          let longitud = "-5.97317";
-          let url_completa = url + "lat="+latitud+"&lon="+longitud+"&units=metric&appid"+apikey;
-          $.get(url_completa).done(function(datos){
-            console.log(datos.main.temp);
-            $("#objetivo").text("La temperatura en Sevilla es de "+datos.main.temp+"ºCelsius")
+          let url= "https://freeipapi.com/api/json/";
+          $.get(url).done(function(datos){
+            console.log(datos);
+            $("#objetivo").text("Localizado en "+datos.countryName + " con dirección IP "+datos.ipAddress + "en la región de "+datos.regionName)
           }).fail(function (){
             $("#objetivo").text("Ha ocurrido un error en la llamada del servidor")
           })
