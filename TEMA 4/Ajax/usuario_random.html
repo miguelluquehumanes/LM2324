@@ -64,7 +64,13 @@
                         let fullname= datos.result[0].name.first + " " + datos.result[0].name.last;
                         let username= datos.result[0].login.username;
                         let email= datos.result[0].email;
-                        let 
+                        let city = datos.result[0].location.city;
+
+                        $("img").attr("src",img);
+                        $(".fullname").text(fullname);
+                        $(".username").text(username);
+                        $(".email").text(email);
+                        $(".city").text(city);
 
                     } 
             })
@@ -72,6 +78,55 @@
 
 
 
+        });
+
+        /*Función para el botón "Español"*/
+        $("#btn-espanol").click(function(){ 
+                
+                $.ajax({
+                    url: 'https://randomuser.me/api/?nat=es',
+                    dataType: 'json',
+                    success: function(datos){   
+                        let img = datos.results[0].picture.medium;
+                        let fullname = datos.results[0].name.first + " " + datos.results[0].name.last;
+                        let username = datos.results[0].login.username;
+                        let email = datos.results[0].email;
+                        let city = datos.results[0].location.city;
+
+                        $("img").attr("src",img);
+                        $(".fullname").text(fullname);
+                        $(".username").text(username);
+                        $(".email").text(email);
+                        $(".city").text(city);
+                    }
+                });
+            }); 
+
+            /*Función para el botón "5 Españoles"*/
+            $("#btn-varios").click(function(){ 
+
+                $.ajax({
+                    url: 'https://randomuser.me/api/?results=5&nat=es&page=3',
+                    dataType: 'json',
+                    success: function(datos){
+                        
+                        $("img").attr("src","multiple.png");
+                        $("p").empty();
+                       
+                        for(var i = 0; i < datos.results.length; i++){
+
+                            let fullname = datos.results[i].name.first + " " + datos.results[i].name.last;
+                            $(".fullname").append(fullname + "</br>");
+                            let username = datos.results[i].login.username;
+                            $(".username").append(username + "</br>");
+                            let email = datos.results[i].email;
+                            $(".email").append(email + "</br>");
+                            let city = datos.results[i].location.city;
+                            $(".city").append(city + "</br>");
+                        }     
+                    }  
+                });
+            }); 
         });
     </script>
 </body>
