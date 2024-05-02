@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#dialogo-confirm").dialog({
+                resizable: false,
+                height: "auto",
+                width: 400,
+                modal: true,
+                buttons: {
+                    "Borrar elementos": function () {
+                        $("h1").hide();
+                        $("p").hide();
+                        $(this).dialog("close");
+                    },
+                    Cancel: function () {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <h1>Ejemplo de diálogo modal</h1>
+    <div id="dialogo-confirm" title="¿Borrar todo el ordenador?">
+    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>Tu ordenador está infectado con un troyano. ¿Desea borrar su ordenador por completo?</p>
+</div>
+
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis, tempore? Commodi beatae at dolore neque tempore in, nihil harum, nam, necessitatibus unde consequatur facilis magni rem quos ipsa enim fuga?</p>
+</body>
+
+</html>
