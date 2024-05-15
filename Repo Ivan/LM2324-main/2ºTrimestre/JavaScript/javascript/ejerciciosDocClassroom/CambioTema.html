@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambio de tema</title>
+</head>
+<body id="color">
+
+    <p id="texto">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem labore cum totam dignissimos? Itaque ratione unde odio voluptates eligendi! Quos nam iste, nemo reprehenderit laudantium expedita dolorum ducimus veritatis ipsam?
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem labore cum totam dignissimos? Itaque ratione unde odio voluptates eligendi! Quos nam iste, nemo reprehenderit laudantium expedita dolorum ducimus veritatis ipsam?
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem labore cum totam dignissimos? Itaque ratione unde odio voluptates eligendi! Quos nam iste, nemo reprehenderit laudantium expedita dolorum ducimus veritatis ipsam?
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem labore cum totam dignissimos? Itaque ratione unde odio voluptates eligendi! Quos nam iste, nemo reprehenderit laudantium expedita dolorum ducimus veritatis ipsam?
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem labore cum totam dignissimos? Itaque ratione unde odio voluptates eligendi! Quos nam iste, nemo reprehenderit laudantium expedita dolorum ducimus veritatis ipsam?
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem labore cum totam dignissimos? Itaque ratione unde odio voluptates eligendi! Quos nam iste, nemo reprehenderit laudantium expedita dolorum ducimus veritatis ipsam?
+    </p>
+    <button onclick="black()">Cambiar a black</button>
+    <button onclick="claro()">Cambiar a blanco</button>
+    <script>
+    
+function cargarPagina(){
+    let valor = localStorage.getItem("tema");
+    if (valor === "black"){
+        document.getElementById("color").style.backgroundColor= "black"
+        document.getElementById("color").style.color= "white"
+    }
+    else {
+        document.getElementById("color").style.backgroundColor= "white"
+        document.getElementById("color").style.color= "black"
+    }
+}
+function black(){
+    document.getElementById("color").style.backgroundColor= "black"
+    document.getElementById("color").style.color= "white"
+    localStorage.setItem("tema", "black");
+}
+function claro(){
+    document.getElementById("color").style.backgroundColor= "white"
+    document.getElementById("color").style.color= "black"
+    localStorage.setItem("tema", "white")
+};
+window.onload = cargarPagina;
+
+    </script>
+</body>
+</html>
+

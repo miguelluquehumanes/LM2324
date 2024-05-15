@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anuncios rotatorios</title>
+    <script>
+        var NumAleat = 0, DirPag= 0; 
+        setInterval(random, 3000);
+        var ImgRand = ["images_banner/banner0.png","images_banner/banner1.png","images_banner/banner2.png","images_banner/banner3.png","images_banner/banner4.png","images_banner/banner5.png"];
+        var DirPag = ["https://store.dsautomobiles.es/configurable","https://www.elcorteingles.es/supermercado/","https://www.elcorteingles.es/daitsu/electrodomesticos/aire-acondicionado/","https://www.madridhifi.com/","https://launidad.movistarplus.es/?dis_c=331187589&dclid=CL-Lt9zx4_YCFdZEHQkdLpkExQ","https://www.tikamoon.es/"];
+        
+        function random(){
+
+           NumAleat = Math.floor((Math.random()*(5 -0 + 1)) + 0);
+            document.getElementById("foto").src = "images_banner/banner"+ NumAleat + ".png"
+            document.getElementById("pagina").href = DirPag[NumAleat];
+        }
+       
+       
+
+
+    </script>
+</head>
+<body onload="random()">
+
+    
+    <h2>Anuncios aleatorios</h2>
+    <a href="" id="pagina" target="_blank"><img src="" id="foto"></a>
+
+
+
+</body>
+</html>

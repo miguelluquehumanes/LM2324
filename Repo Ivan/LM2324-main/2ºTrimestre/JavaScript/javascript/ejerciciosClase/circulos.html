@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circulos</title>
+    <script src="../scripts/circulos.js"></script>
+
+    <style>
+
+        .contenedor{
+
+            display: flex;
+        }
+
+        #rojo{
+            background-color: red;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 10px 10px;
+        }
+
+        #verde{
+            background-color: green;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 10px 10px;
+        }
+
+        #azul{
+            background-color: blue;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 10px 10px;
+        }
+
+        #negro{
+            background-color: black;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 10px 10px;
+        }
+
+        .boton{
+
+            display: flex;
+            flex-direction: row;
+            width: auto;
+            margin: 10px 10px;
+        }
+
+        button{
+
+            width: 100px;
+            margin: 10px 10px;
+        }
+
+    </style>
+</head>
+<body>
+   
+   
+    <div class="contenedor">
+    <div  id="rojo"></div>
+    <div  id="verde"></div>
+    <div  id="azul"></div>
+    <div  id="negro"></div>
+ 
+    </div>  
+ <!-- 
+    <div class="boton">
+
+        <button onclick="ocultar('rojo')">Ocultar rojo</button>
+        <button onclick="ocultar('verde')">Ocultar verde</button>
+        <button onclick="ocultar('azul')">Ocultar azul</button>
+        <button onclick="ocultar('negro')">Ocultar negro</button>
+    </div>
+
+    <div class="boton">
+
+        <button onclick="mostrar('rojo')">Mostrar rojo</button>
+        <button onclick="mostrar('verde')">Mostrar rojo</button>
+        <button onclick="mostrar('azul')">Mostrar rojo</button>
+        <button onclick="mostrar('negro')">Mostrar rojo</button>
+    </div>-->
+
+    <div class="contenedor">
+
+        <button onclick="ocultar_o_mostrar('rojo')">Mostrar</button>
+        <button onclick="ocultar_o_mostrar('verde')">Mostrar</button>
+        <button onclick="ocultar_o_mostrar('azul')">Mostrar</button>
+        <button onclick="ocultar_o_mostrar('negro')">Mostrar</button>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario avanzado 1</title>
+</head>
+<body>
+
+   <form action="">
+
+    <h1>Forma de pago</h1>
+    <p>Los campos obligatorios van seguidos de <strong>*</strong>. </p>
+
+    <section>
+
+        <fieldset>
+
+            <legend><h2>Información de contacto</h2></legend>
+
+            <fieldset>
+                
+                <legend>Titulo</legend>
+                <label for=""><input type="radio" name="titulo" id="mr">Mr</label><br>
+                <label for=""><input type="radio" name="titulo" id="mrs">Mrs</label><br>
+                <label for=""><input type="radio" name="titulo" id="miss">Miss</label><br>
+
+            </fieldset>
+
+            <p><label for=""><input type="text" name="nombre" id="" required>*</label></p>
+            <p><label for=""><input type="email" name="email" id="" required>*</label></p>
+            <p><label for=""><input type="password" name="password" id="" required>*</label></p>
+
+        </fieldset>
+    </section>
+
+    <section>
+
+        <fieldset>
+
+            <legend><h2>Información de pago</h2></legend>
+
+            <p><label for="">Tipo de tarjeta:
+                <select name="tipo_tarjeta" id="">
+
+                    <option value="visa">Visa</option>
+                    <option value="mc">MasterCard</option>
+                    <option value="amex">American Express</option>
+
+                </select>
+            </label></p>
+
+            <p><label for="">Número de tarjeta: <input type="tel" name="numero_tarjeta" id="" required>*</label></p>
+
+            <p><label for="">Fecha de caducidad: <input type="date" name="caducidad" id="" required></label></p>
+        </fieldset>
+    </section>
+
+        <p> <button type="submit">Validar el pago</button> </p>
+
+   </form> 
+    
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivina</title>
+
+    <style>
+        ul{list-style: none;}
+    
+    </style>
+</head>
+<body>
+
+    <script>
+
+            var inicio ={
+
+                minutos: new Date().getMinutes(),
+                segundos: new Date().getSeconds()
+
+            } 
+        
+            var TiempoIn=0,TiempoFin=0;
+
+        function numAlet(){
+
+            var cadena=0;
+            var min = Math.ceil(100);
+            var max = Math.floor(1000);
+            return resultado = Math.floor(Math.random() * (1000 - 100) + 100);
+             
+        }
+
+        function comenzar(){ 
+            
+            numAlet();
+            cadena = resultado.toString();
+            var contenido = document.getElementById("contenedor");
+            contenido.innerHTML="<h1>¡Adivina el numero en tiempo record!</h1>";
+            contenido.innerHTML+="<p>He pensado en un número de 3 cifras...</p>",
+            contenido.innerHTML+="<p id='aleatorio'></p>"
+            contenido.innerHTML+="<input type='text' id='numero'>"
+            contenido.innerHTML+="<p><button onclick='comprueba()'>Comprobar</button></p>"
+            document.getElementById("aleatorio").innerHTML=resultado;
+            contenido.innerHTML+="<ul id='lista'></ul>"
+            TiempoIn=(inicio.minutos*60)+inicio.segundos;
+            
+        }
+
+
+        function comprueba(){
+
+            var intento = document.getElementById("numero").value;
+            var aciertos = 0;
+            
+            
+            if (intento==cadena){
+                    
+                var contenido = document.getElementById("contenedor");
+                contenido.innerHTML="<h1>¡Adivina el numero en tiempo record!</h1>";
+                contenido.innerHTML+="<p>He pensado en un número de 3 cifras...</p>",
+                contenido.innerHTML+="<p id='aleatorio'></p>"
+                contenido.innerHTML+="<p><button onclick='comenzar()'>Comenzar</button></p>"
+                contenido.innerHTML+="¡Felicidades, acertaste el número!";
+                contenido.innerHTML+="<p id='tiempo'></p>"
+                TiempoFin =(inicio.minutos*60)+inicio.segundos;
+                TiemTrans = TiempoFin - TiempoIn;
+                document.getElementById("tiempo").innerHTML = "Has tardado "+TiemTrans+" segundos";
+                    
+                }else{
+                 
+                    for(var i=0; i<cadena.length;i++){
+                
+                        if (cadena[i]==intento[i]){ 
+
+                        aciertos ++;
+
+                        }
+                    
+                    } 
+
+                    var mensaje = "Has acertado "+ aciertos +  " cifras"; 
+                    var lista = document.getElementById("lista");
+                    var elemento = document.createElement("li");
+                    elemento.textContent=mensaje;
+                    lista.appendChild(elemento);
+
+            }  
+            
+            window.onload=numAlet();
+
+        }
+    </script>
+    
+    <div id="contenedor">
+    <h1>¡Adivina el numero en tiempo record!</h1>
+    <p>He pensado en un número de 3 cifras...</p>
+    <button onclick="comenzar()">Comenzar</button>
+    </div>
+
+</body>
+</html>

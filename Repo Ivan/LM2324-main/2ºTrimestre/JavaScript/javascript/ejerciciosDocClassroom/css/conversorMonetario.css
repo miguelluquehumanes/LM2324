@@ -1,0 +1,13 @@
+.contenedor{
+
+    position: absolute;
+    height: 40%;
+    width: 40%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #6590b3;
+    box-shadow: 0px 0px 30px rgb(167, 167, 168);
+    text-align: center;
+}
+

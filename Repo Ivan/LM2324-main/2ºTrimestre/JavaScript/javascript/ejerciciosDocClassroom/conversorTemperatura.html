@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor Temperatura</title>
+    <link rel="stylesheet" href="css/conversorTemperatura.css">
+    <script src="script/conversorTemperatura.js"></script>
+</head>
+<body>
+    
+    <div class="contenedor">
+        <h1>Conversor de Temperatura</h1>
+        <label for="">Introduzca una cifra:</label>
+        <input type="text" id="cifra">
+        <p>
+        <button onclick="conversor('celsius')">Convertir a grados Celsius</button>
+        <button onclick="conversor('fahrenheit')">Convertir a grados Fahrenheit</button>
+        </p>
+        <p id="resultado"></p>
+    </div>
+    
+</body>
+</html>

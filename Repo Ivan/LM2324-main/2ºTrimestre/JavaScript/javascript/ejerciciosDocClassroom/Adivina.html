@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivina</title>
+    <script>
+
+        var juego,NumUs,NumRand,contador=0,resultado=0;
+
+        function NumeroAleat(){
+            juego = document.getElementById("juego");
+            min = Math.ceil(100);
+            max = Math.floor(1000);
+            resultado = Math.floor(Math.random() * (1000 - 100) + 100);
+            juego.innerHTML = " <h2>¡Adivina el número en tiempo record!</h2>";
+            juego.innerHTML += "<h4>He pensado un número de 3 cifras...</h4>";
+            juego.innerHTML += '<p id="mostrar"></p>'; 
+            juego.innerHTML += '<p><input type="text" id="numero" placeholder="Escribe número"></p>';
+            juego.innerHTML += '<button onclick="Comprobar()">Comprueba</button>'
+            return document.getElementById("mostrar").innerHTML = resultado;
+        }
+
+            function Comprobar(){
+
+                NumUs = (document.getElementById("numero").value).toString();
+                NumRand = resultado.toString();
+
+                
+                for(i=0; i<NumUs.length;i++){
+                    
+                    if(NumUs[i]==NumRand[i]){
+
+                       contador ++;
+                    }
+                } 
+            
+                document.getElementById("feedback").innerHTML= "Tu propuesta "+ NumUs + " coincide en " + contador +" cifras";
+            }
+
+    </script>
+</head>
+<body>
+    <div id="juego">
+        <h2>¡Adivina el número en tiempo record!</h2>
+        <h4>He pensado un número de 3 cifras...</h4>
+        <button onclick="NumeroAleat()">Comenzar</button>
+        <p id="feedback"></p>
+        
+    </div>
+</body>
+</html>

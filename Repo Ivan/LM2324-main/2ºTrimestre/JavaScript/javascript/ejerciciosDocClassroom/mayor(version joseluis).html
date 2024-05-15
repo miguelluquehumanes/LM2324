@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mayor de un Array</title>
+    <script src="script/mayor(version joseluis).js"></script>
+    <script>
+        var listaNumeros=[]; //vector
+        function anadir(){
+
+            let numero = parseFloat(document.getElementById("numero").value);
+            listaNumeros.push(numero);
+            document.getElementById("numeros").innerHTML = listaNumeros;
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculo del elemento mayor de un array</h1>
+    <input type="text" id="numero" placeholder="Introduce un número">
+    <p id="numeros"></p>
+    <p id="resultado"></p>
+    <button onclick="anadir();">Añadir número</button>
+    <button onclick="var maximo = mayor(listaNumeros); document.getElementById('resultado').innerHTML = maximo;">¡Calcular mayor!</button>
+    <button onclick="var minimo = menor(listaNumeros); document.getElementById('resultado').innerHTML = minimo;">¡Calcular menor!</button>
+    <button onclick="imprimir(listaNumeros)">Imprimir elementos</button>
+    <!-- Al tener un return debemos capturar el resultado de la funcion con la variable maximo -->
+</body>
+</html>
+

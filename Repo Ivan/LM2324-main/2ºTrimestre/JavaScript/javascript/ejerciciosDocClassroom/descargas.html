@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descargas</title>
+
+    <style>
+
+        li{list-style: none; margin-bottom: 0.8rem;}
+
+        a{text-decoration: none;color: #9082e0;}
+
+        img{width: 30px; height: 30px; vertical-align: middle; margin-left: 5px;}
+
+        ul{display: grid; grid-template-columns: auto auto; justify-content:space-around;}
+
+        body{position: relative; margin-top: 100px; background-color: #f0e1c6;}
+    </style>
+</head>
+<body>  
+
+    <ul id="mostrar">
+    </ul>
+
+    <script>
+
+        var enlaces = new Array();
+        
+
+        function mecEnlace(){
+
+            for(var i = 0; i < 20; i++){
+
+                 
+                //Obtenemos el contenido que hay dentro de "ul"
+                var contenido = document.getElementById("mostrar");
+                //Creamos un elemento "li" y "a"
+                var lista = document.createElement("li");
+                lista.classList.add("li");
+                var enlace = document.createElement("a");
+                enlace.classList.add("a");
+
+                //Creamos el elemento "img" para poner la imagen de la nube
+                var imagenNub = document.createElement("img");
+                //Asignamos la ruta de imagen 
+                imagenNub.setAttribute("src", 'images/download.png');
+                imagenNub.setAttribute("alt", 'nube');
+                
+
+                //Creamos la ruta del fichero a visualizar a partir del parámetro "i"
+                var fichero = "ficheros/fichero"+(i+1)+".pdf";
+                //Introducimos la ruta del fichero en la etiqueta "a"
+                enlace.setAttribute("href", fichero);
+                enlace.setAttribute("target", '_blank');
+                //Contenido del texto que contendrá el enlace de la etiqueta "a"
+                enlace.textContent = "Descarga el fichero " + (i+1);
+                //Añadimos la etiqueta "img" a la etiqueta "a"
+                enlace.appendChild(imagenNub);
+                enlace.classList.add("img");
+                //Anidamos la variable enlace y lista a su nodo padre
+                lista.appendChild(enlace);
+                contenido.appendChild(lista);
+
+
+            }
+               
+        }
+
+        window.onload = mecEnlace();
+    </script>
+</body>
+</html>
+
+
+           

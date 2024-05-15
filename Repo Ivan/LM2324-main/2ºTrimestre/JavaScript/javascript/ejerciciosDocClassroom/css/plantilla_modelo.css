@@ -1,0 +1,28 @@
+.contenedor{
+
+    position: absolute;
+    box-sizing: border-box;
+    left: 50%;
+    top: 50%;
+    background-color: #6590b3;
+    box-shadow: 0px 0px 30px rgb(167, 167, 168);
+    transform: translate(-50%,-50%);
+    width: 40%;
+    height: 40%;
+    text-align: center;
+}
+
+label{font-size: 20px;}
+
+
+button{border-radius: 5px; background-color: rgb(150, 150, 150);}
+
+button:hover{background-color: #bbb370;}
+
+input:hover{outline: 0.5px solid #bbb370;}
+input:focus{outline: 0.5px solid #bbb370;}
+
+button,input{padding: 5px;}
+
+#p1{margin-top: 150px;}
+#mostrar{margin: 2rem; background-color: #aa9b7e;}

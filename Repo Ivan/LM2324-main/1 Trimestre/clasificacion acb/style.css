@@ -1,0 +1,88 @@
+
+body{
+
+    padding-left: 30%;
+    padding-top: 10%;
+    
+}
+
+table{
+
+    width: 650px;
+    height: 300px;
+    border: 2px solid black;
+    border-radius: 8px;
+    border-spacing: 0px;
+    padding-bottom: 3%;
+    background-color: #202124;
+
+}
+
+td.ajuste{
+
+    padding-left: 35px;
+    background-color: #202124;
+}
+
+
+
+tr.encabezado{
+
+    font-family: arial,sans-serif;
+    font-size: 18px;
+    text-align: left;
+    color: #FFFF;
+    height: 10%;
+    background-color: #212121;
+    height: 60px;
+
+}
+
+tr.temporada{
+
+    height: 5px;
+}
+
+
+p{
+
+   padding-left: 20px; 
+   height: 8px;
+
+}
+
+td.color{
+
+    background-color: #303134;
+    color: #9aa0a6;
+}
+
+
+tr.apartados{
+
+    font-family: arial,sans-serif;
+    font-size: 12px;
+    text-align: center;
+    color:#bfbfbf;
+    background-color: #212121;
+    height: 48px;
+}
+
+td.bloque{
+
+    padding-left: 5%;
+
+}
+
+tr.cuerpo{
+
+    background-color:#202124;
+    text-align: justify;
+    color: #bdc1c6;
+}
+
+hr{
+    width: 610px;
+    
+    background-color: grey;
+}
