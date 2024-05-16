@@ -76,28 +76,28 @@
                 <label for="checkbox-1">Carrito 1</label>
                 <input class="carrito" type="checkbox" name="opciones" id="checkbox-1">
                 <!-- Código a completar-->
-                <label for="checkbox-1">Carrito 2</label>
-                <input class="carrito" type="checkbox" name="opciones" id="checkbox-2">
-                <label for="checkbox-1">Carrito 3</label>
-                <input class="carrito" type="checkbox" name="opciones" id="checkbox-3">
+                <label for="checkbox-2">Carrito 2</label>
+                <input class="carrito" type="checkbox" name="opciones3" id="checkbox-2">
+                <label for="checkbox-3">Carrito 3</label>
+                <input class="carrito" type="checkbox" name="opciones3" id="checkbox-3">
             </fieldset>
             <fieldset>
-                <label for="checkbox-1">Carrito 4</label>
-                <input class="carrito" type="checkbox" name="opciones" id="checkbox-4">
-                <label for="checkbox-1">Carrito 5</label>
-                <input class="carrito" type="checkbox" name="opciones" id="checkbox-5">
-                <label for="checkbox-1">Carrito 6</label>
-                <input class="carrito" type="checkbox" name="opciones" id="checkbox-6">
+                <label for="checkbox-4">Carrito 4</label>
+                <input class="carrito" type="checkbox" name="opciones4" id="checkbox-4">
+                <label for="checkbox-5">Carrito 5</label>
+                <input class="carrito" type="checkbox" name="opciones5" id="checkbox-5">
+                <label for="checkbox-6">Carrito 6</label>
+                <input class="carrito" type="checkbox" name="opciones6" id="checkbox-6">
             </fieldset>
             <label for="hora">Hora:</label>
             <br>
             <select id="hora" name="hora">
                 <option value="8:00 - 9:00">8:00 - 9:00</option>
-                <option value="9:00 - 10:00">9:00 - 10:00</option>
-                <option value="10:00 - 11:00">10:00 - 11:00</option>
-                <option value="11:30 - 12:30">11:30 - 12:30</option>
-                <option value="12:30 - 13:30">12:30 - 13:30</option>
-                <option value="13:30 - 14:00">13:30 - 14:00</option>
+                <option value="8:00 - 9:00">9:00 - 10:00</option>
+                <option value="8:00 - 9:00">10:00 - 11:00</option>
+                <option value="8:00 - 9:00">11:30 - 12:30</option>
+                <option value="8:00 - 9:00">12:30 - 13:30</option>
+                <option value="8:00 - 9:00">13:30 - 14:00</option>
                 <!-- Código a completar-->
 
             </select>
@@ -113,53 +113,59 @@
     <script>
         $(document).ready(function () {
             $.datepicker.regional['es'] = {
-            closeText: 'Cerrar',
-            prevText: '< Ant',
-            nextText: 'Sig >',
-            currentText: 'Hoy',
-            monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-            monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
-            dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
-            dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
-            dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
-            weekHeader: 'Sm',
-            dateFormat: 'dd/mm/yy',
-            firstDay: 1,
-            isRTL: false,
-            showMonthAfterYear: false,
-            yearSuffix: '',
-        };
-        $.datepicker.setDefaults($.datepicker.regional['es']);
-            $("#fecha").datepicker(
-                { minDate: "+1D", maxDate: "+2w", beforeShowDay: $.datepicker.noweekends});
-        
-            $("#reserva").click(function(e){
+                closeText: 'Cerrar',
+                prevText: '< Ant',
+                nextText: 'Sig >',
+                currentText: 'Hoy',
+                monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+                dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
+                dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+                weekHeader: 'Sm',
+                dateFormat: 'dd/mm/yy',
+                firstDay: 1,
+                isRTL: false,
+                showMonthAfterYear: false,
+                yearSuffix: '',
+            };
+            $.datepicker.setDefaults($.datepicker.regional['es']);
+            $(function () {
+                $("#fecha").datepicker(
+                    { minDate: "+1D", maxDate: "+2w", beforeShowDay: $.datepicker.noWeekends });
+            });
+
+            $(function () {
+                $(".carrito").checkboxradio();
+            });
+
+            $("#reserva").click(function (e) {
                 e.preventDefault();
-                var fecha = $("#fecha").val();
-                var carrito = $("#checkbox-1").val();
-                var carrito2 = $("#checkbox-2").val();
-                var carrito3 = $("#checkbox-3").val();
-                var carrito4 = $("#checkbox-4").val();
-                var carrito5 = $("#checkbox-5").val();  //var checkboxes = $('input:checkbox:checked');
-                var carrito6 = $("#checkbox-6").val();
+                var checkbox = $(".carrito");
+                var carritos = 0;
+                var dia = $("#fecha").val();
                 var hora = $("#hora").val();
-                var portatiles = 0;
 
+                if (dia != "") {
+                    for (var i = 0; i < checkbox.length; i++) {
+                        if (checkbox[i].checked == true) {
+                            carritos += 1;
+                        }
+                    }
 
+                    var portatiles = carritos * 15;
 
+                    $("#totalPortatiles").empty();
+                    $("#totalPortatiles").text("Nº Portátiles: ");
+                    $("#totalPortatiles").append(portatiles);
 
-                $("#totalPortatiles").empty("");
-                $("#totalPortatiles").text("Portátiles: ");
-                $("#totalPortatiles").append(portatiles)
-                $("#diaReserva").html("<p>"+fecha+"</p><p>"+"Carrito: " +carrito+"</p>");
+                    $("#diaReserva").text("Reserva el " + dia + " de " + hora + " horas");
 
-
-
-                
-
-
-            })
-
+                } else {
+                    $("#diaReserva").empty();
+                    $("#diaReserva").append("Debes seleccionar una fecha");
+                }
+            });
         });
     </script>
 
