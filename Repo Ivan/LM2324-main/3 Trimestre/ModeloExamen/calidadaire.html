@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calidad del aire</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <style>
+        .verde{background-color: green;}
+        .amarillo{background-color: yellow;}
+        .naranja{background-color: orange;}
+        .morado{background-color: purple;}
+        .rojo{background-color: red;}
+        .super { 
+        vertical-align:super;            /*superindice*/ 
+        font-size:12pt;
+        } 
+
+        .sub { 
+            vertical-align:sub;            /*subindice*/ 
+            font-size:12pt;
+        } 
+        body{padding: 20px;}
+    </style>
+</head>
+<body>
+    <h1>Air Pollution API</h1>
+    <p><label for="">Introduce la latitud:</label></p>
+    <p><input type="text" id="latitud"></p>
+    <p><label for="">Introduce la longitud:</label></p>
+    <p><input type="text" id="longitud"></p>
+    <p><button id="btn-enviar">Enviar</button></p>
+    <p id="mostrar"></p>
+    <div id="contaminacion"></div>
+
+    <script>
+        $(document).ready(function(){
+            $("#btn-enviar").click(function(){
+                var latitud = $("#latitud").val();
+                var longitud = $("#longitud").val();
+                var apikey = 'eba114bff280b4d8179fdb772d7dfbcd';
+
+                if(longitud == '' || latitud == ''){
+                    $("#contaminacion").empty();
+                    $("#mostrar").text("Por favor, rellene los campos");
+                }else{
+                    $("#mostrar").empty();
+                    
+
+
+                    $.ajax({
+
+                        url:"http://api.openweathermap.org/data/2.5/air_pollution?lat="+latitud+"&lon="+longitud+"&appid="+apikey,
+                        dataType: 'json',
+
+                        success:function(datos){
+                            console.log(datos);
+                            var aqi = datos.list[0].main.aqi;
+                            var estado='';
+                            var CO = datos.list[0].components.co;
+                            var SO2 = datos.list[0].components.so2;
+                            var PM = datos.list[0].components.pm2_5;
+                            
+                            switch(aqi){
+
+                                case 1:
+                                estado='Bueno';
+                                $("#contaminacion").addClass("verde");
+                                break;
+
+                                case 2:
+                                estado='Aceptable';
+                                $("#contaminacion").addClass("amarillo");
+                                break;
+
+                                case 3:
+                                estado='Moderado';
+                                $("#contaminacion").addClass("naranja");
+                                break;
+                                
+                                case 4:
+                                estado='Malo';
+                                $("#contaminacion").addClass("morado");
+                                break;
+                                
+                                case 5:
+                                estado='Muy malo';
+                                $("#contaminacion").addClass("rojo");
+                                break;
+
+                            }
+                            $("#contaminacion").empty();
+                            $("#contaminacion").append("<p>Calidad del aire: " + estado +"</p>");
+                            $("#contaminacion").append("<p>Cantidad de monóxido de carbono (CO): " + CO +"µg/m<span class='super'>3</span>"+"</p>")
+                            $("#contaminacion").append("<p>Cantidad de dióxido de azufre (SO<span class='sub'>2</span>) " + SO2 +"µg/m<span class='super'>3</span>"+"</p>")
+                            $("#contaminacion").append("<p>Cantidad de partículas finas (PM<span class='sub'>2.5</span>): " + PM +"µg/m<span class='super'>3</span>"+"</p>")
+
+                        },
+
+                        error:function(){
+                            $("#mostrar").text("Error de Ajax");
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
